@@ -141,3 +141,9 @@ variable "maintenance_window" {
     preference                       = "NO_PREFERENCE"
   }
 }
+
+variable "aws_odb_network_associated_resources" {
+  description = "The network associated resources id for its deletion"
+  type        = string
+  default     = null
+}

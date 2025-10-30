@@ -19,6 +19,7 @@ resource "aws_odb_cloud_autonomous_vm_cluster" "this" {
   is_mtls_enabled_vm_cluster             = var.is_mtls_enabled_vm_cluster
   scan_listener_port_non_tls             = var.scan_listener_port_non_tls
   scan_listener_port_tls                 = var.scan_listener_port_tls
+  delete_associated_resources = var.aws_odb_network_associated_resources
   maintenance_window {
         days_of_week                     = var.maintenance_window.days_of_week
         hours_of_day                     = var.maintenance_window.hours_of_day

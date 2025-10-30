@@ -161,6 +161,11 @@ variable "odb_network_s3_policy_document" {
   default     = null
 }
 
+variable "odb_network_associated_resources" {
+  type        = string
+  description = "The network associated resources id for its deletion"
+  default     = null
+}
 #==================================ODB peering vars===========================
 variable "odb_peering_connection_display_name" {
   type        = string
