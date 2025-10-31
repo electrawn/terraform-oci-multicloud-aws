@@ -39,5 +39,4 @@ resource "aws_odb_cloud_vm_cluster" "this" {
   memory_size_in_gbs              = local.memory_size_in_gbs
   timezone                        = var.time_zone
   scan_listener_port_tcp          = var.scan_listener_port_tcp
-  delete_associated_resources = var.aws_odb_network_associated_resources
 }

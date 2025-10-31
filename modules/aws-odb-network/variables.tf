@@ -53,8 +53,8 @@ variable "tags" {
   default     = null
 }
 
-variable "aws_odb_network_associated_resources" {
+variable "delete_odb_network_associated_resource" {
   description = "The network associated resources id for its deletion"
-  type        = string
-  default     = null
+  type        = bool
+  default     = false
 }
