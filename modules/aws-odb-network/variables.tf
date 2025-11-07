@@ -52,3 +52,9 @@ variable "tags" {
   type        = map(string)
   default     = null
 }
+
+variable "delete_odb_network_associated_resource" {
+  description = "The network associated resources id for its deletion"
+  type        = bool
+  default     = false
+}

@@ -160,6 +160,12 @@ variable "odb_network_s3_policy_document" {
   description = "S3 policy document as string (optional)"
   default     = null
 }
+
+variable "delete_odb_network_associated_resource" {
+  type        = bool
+  description = "The network associated resource id for its deletion"
+  default     = false
+}
 #==================================ODB peering vars===========================
 variable "odb_peering_connection_display_name" {
   type        = string

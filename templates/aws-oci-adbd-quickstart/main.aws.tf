@@ -17,6 +17,7 @@ module "odb_network" {
   aws_odb_network_zero_etl_access      = var.odb_network_zero_etl_access
   aws_odb_network_s3_policy_document   = var.odb_network_s3_policy_document
   tags                                 = var.tags
+  delete_odb_network_associated_resource = var.delete_odb_network_associated_resource
 }
 
 # VPC for ODB Peering Connection (if not using existing VPC)
