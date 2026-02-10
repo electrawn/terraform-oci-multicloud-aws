@@ -5,12 +5,22 @@ variable "autonomous_vm_cluster_display_name" {
 
 variable "aws_odb_exa_resource_id" {
   type        = string
-  description = "ODB Exadata Resource ID"
+  description = "ODB Exadata Resource ID. Either the combination of `aws_odb_exa_resource_id` and `aws_odb_network_resource_id` or `aws_odb_exa_resource_arn` and `aws_odb_network_resource_arn` must be used."
+}
+
+variable "aws_odb_exa_resource_arn" {
+  type        = string
+  description = "ODB Exadata Resource ARN.Either the combination of `aws_odb_exa_resource_id` and `aws_odb_network_resource_id` or `aws_odb_exa_resource_arn` and `aws_odb_network_resource_arn` must be used."
 }
 
 variable "aws_odb_network_resource_id" {
   type        = string
-  description = "ODB Network Resource ID"
+  description = "ODB Network Resource ID. Either the combination of `aws_odb_exa_resource_id` and `aws_odb_network_resource_id` or `aws_odb_exa_resource_arn` and `aws_odb_network_resource_arn` must be used."
+}
+
+variable "aws_odb_network_resource_arn" {
+  type        = string
+  description = "ODB Network Resource ARN. Either the combination of `aws_odb_exa_resource_id` and `aws_odb_network_resource_id` or `aws_odb_exa_resource_arn` and `aws_odb_network_resource_arn` must be used."
 }
 
 variable "autonomous_data_storage_size_in_tbs" {

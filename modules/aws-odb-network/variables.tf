@@ -47,6 +47,28 @@ variable "aws_odb_network_s3_policy_document" {
   default     = null
 }
 
+variable "aws_odb_network_kms_access" {
+  description = "The configuration for KMS access from the ODB network"
+  type        = string
+}
+
+variable "aws_odb_network_kms_document" {
+  description = "Specifies the endpoint policy for KMS access from the ODB network"
+  type        = string
+  default     = null
+}
+
+variable "aws_odb_network_sts_access" {
+  description = "The configuration for STS access from the ODB network"
+  type        = string
+}
+
+variable "aws_odb_network_sts_document" {
+  description = "Specifies the endpoint policy for STS access from the ODB network"
+  type        = string
+  default     = null
+}
+
 variable "tags" {
   description = "Resource tags for the Exadata Infrastructure"
   type        = map(string)
