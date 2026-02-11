@@ -1,6 +1,11 @@
 variable "aws_odb_exa_resource_id" {
   type        = string
-  description = "OBD Exadata Infrastructure Resource ID"
+  description = description = "OBD Network Resource ID.Either the combination of `aws_odb_exa_resource_id` and `aws_odb_network_resource_id` or `aws_odb_exa_resource_arn` and `aws_odb_network_resource_arn` must be used."
+}
+
+variable "aws_odb_exa_resource_arn" {
+  type        = string
+  description = description = "OBD Network Resource ID.Either the combination of `aws_odb_exa_resource_id` and `aws_odb_network_resource_id` or `aws_odb_exa_resource_arn` and `aws_odb_network_resource_arn` must be used."
 }
 
 variable "vm_cluster_name" {
@@ -88,7 +93,12 @@ variable "is_sparse_diskgroup_enabled" {
 
 variable "aws_odb_network_resource_id" {
   type        = string
-  description = "OBD Network Resource ID (required)"
+  description = "OBD Network Resource ID.Either the combination of `aws_odb_exa_resource_id` and `aws_odb_network_resource_id` or `aws_odb_exa_resource_arn` and `aws_odb_network_resource_arn` must be used."
+}
+
+variable "aws_odb_network_resource_arn" {
+  type        = string
+  description = description = "OBD Network Resource ID.Either the combination of `aws_odb_exa_resource_id` and `aws_odb_network_resource_id` or `aws_odb_exa_resource_arn` and `aws_odb_network_resource_arn` must be used."
 }
 
 variable "hostname_prefix" {
