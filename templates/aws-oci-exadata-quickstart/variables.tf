@@ -187,17 +187,17 @@ variable "vmc_vm_cluster_name" {
 variable "vmc_gi_cluster_name" {
   type        = string
   description = "The name of the Grid Infrastructure (GI) Cluster (optional)"
-  default = null
+  default     = null
 }
 
 variable "vmc_time_zone" {
-  type = string
+  type        = string
   description = "The time zone of the Exadata VM cluster (optional), default: UTC"
-  default = "UTC"
+  default     = "UTC"
 }
 
 variable "vmc_license_model" {
-  type = string
+  type        = string
   description = "The Oracle license model to apply to the Exadata VM cluster (optional), BRING_YOUR_OWN_LICENSE (default) or BRING_YOUR_OWN_LICENSE"
   default     = "BRING_YOUR_OWN_LICENSE"
 }
@@ -205,19 +205,19 @@ variable "vmc_license_model" {
 variable "vmc_gi_version" {
   type        = string
   description = "The major version of Grid Infrastructure (GI) to install (optional), default 23.0.0.0."
-  default     = "23.0.0.0"  
+  default     = "23.0.0.0"
 }
 
 variable "vmc_db_servers" {
-    type        = set(string)
-    description = "List of DB server IDs (optional), default: null means all DB servers in the Exadata Infrastructure will be used"
-    default     = null 
+  type        = set(string)
+  description = "List of DB server IDs (optional), default: null means all DB servers in the Exadata Infrastructure will be used"
+  default     = null
 }
 
 variable "vmc_cpu_core_count_per_vm" {
   type        = number
   description = "The number of CPU cores to enable per VM for the Exadata VM cluster (optional). Minimum 8 for X11M, default 8"
-  default = 8
+  default     = 8
 }
 
 variable "vmc_memory_size_in_gbs_per_vm" {
@@ -235,7 +235,7 @@ variable "vmc_db_node_storage_size_in_gbs_per_vm" {
 variable "vmc_data_storage_size_in_tbs" {
   type        = number
   description = "The size of the data storage in TBs to enable for the Exadata VM cluster (optional), default: 2"
-  default     = 2  
+  default     = 2
 }
 
 variable "vmc_is_local_backup_enabled" {
@@ -294,71 +294,71 @@ variable "oci_region" {
   description = "OCI Region, e.g. us-phoenix-1"
   default     = null
 }
-variable oci_tenancy_ocid {
+variable "oci_tenancy_ocid" {
   type        = string
   description = "OCID of the OCI tenancy"
   default     = null
 }
-variable oci_user_ocid {
+variable "oci_user_ocid" {
   type        = string
   description = "OCID of the OCI user"
   default     = null
 }
-variable oci_private_key_path {
+variable "oci_private_key_path" {
   type        = string
   description = "The path (including filename) of the private key"
-  default = null
+  default     = null
 }
-variable oci_private_key_password {
+variable "oci_private_key_password" {
   type        = string
   description = "Passphrase used for the key, if it's encrypted"
   sensitive   = true
-  default = null
+  default     = null
 }
-variable oci_fingerprint {
+variable "oci_fingerprint" {
   type        = string
   description = "Fingerprint for the key pair being used"
-  default = null
+  default     = null
 }
 
 # ==================================Database Home vars==========================
 variable "db_home_source" {
-  type = string
+  type        = string
   description = "The source of database. VM_CLUSTER_NEW for creating a database for VM Cluster."
-  default = "VM_CLUSTER_NEW"
+  default     = "VM_CLUSTER_NEW"
 }
 
 variable "db_home_name" {
-  type = string
+  type        = string
   description = "Name of DB Home"
 }
 
 variable "db_home_version" {
-  type = string
+  type        = string
   description = "The Oracle Database version"
 }
 
 # ==================================Container Database vars==========================
 variable "cdb_name" {
-  type = string
+  type        = string
   description = "The display name of the database. (required)"
 }
 
 variable "cdb_admin_password" {
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
   description = "A strong password for SYS, SYSTEM, PDB Admin and TDE Wallet. (required)"
 }
 
 variable "cdb_source" {
-  type = string
-  default = "NONE"
+  type        = string
+  default     = "NONE"
   description = "The source of the database (optional), default NONE."
 }
 
 variable "cdb_auto_backup_enabled" {
-  type = bool
-  default = false
+  type        = bool
+  default     = false
   description = "Enable automatic backup (optional), default false"
 }
 

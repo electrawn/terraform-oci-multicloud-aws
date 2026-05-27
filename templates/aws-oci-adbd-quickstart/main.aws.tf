@@ -1,28 +1,30 @@
 locals {
   # IDs of depending resources
-  cloud_exadata_infrastructure_id = module.exadata_infrastructure.aws_odb_exa_resource_id
-  odb_network_id = module.odb_network.aws_odb_network_resource_id
-  peer_network_id = var.odb_peering_connection_peer_network_id == null ? module.aws_ia_vpc[0].vpc_attributes.id : var.odb_peering_connection_peer_network_id
+  cloud_exadata_infrastructure_id = module.exadata_infrastructure.resource_id
+  odb_network_id                  = module.odb_network.aws_odb_network_resource_id
+  peer_network_id                 = var.odb_peering_connection_peer_network_id == null ? module.aws_ia_vpc[0].vpc_attributes.id : var.odb_peering_connection_peer_network_id
 }
 
 #Create odb network
 module "odb_network" {
-  source                               = "../../modules/aws-odb-network"
-  aws_odb_network_availability_zone_id = var.availability_zone_id
-  aws_odb_network_display_name         = var.odb_network_name
-  aws_odb_network_client_subnet_cidr   = var.odb_network_client_subnet_cidr
-  aws_odb_network_backup_subnet_cidr   = var.odb_network_backup_subnet_cidr
-  aws_odb_network_default_dns_prefix   = var.odb_network_default_dns_prefix
-  aws_odb_network_s3_access            = var.odb_network_s3_access
-  aws_odb_network_zero_etl_access      = var.odb_network_zero_etl_access
-  aws_odb_network_s3_policy_document   = var.odb_network_s3_policy_document
-  tags                                 = var.tags
+  source                                 = "../../modules/aws-odb-network"
+  aws_odb_network_availability_zone_id   = var.availability_zone_id
+  aws_odb_network_display_name           = var.odb_network_name
+  aws_odb_network_client_subnet_cidr     = var.odb_network_client_subnet_cidr
+  aws_odb_network_backup_subnet_cidr     = var.odb_network_backup_subnet_cidr
+  aws_odb_network_default_dns_prefix     = var.odb_network_default_dns_prefix
+  aws_odb_network_s3_access              = var.odb_network_s3_access
+  aws_odb_network_zero_etl_access        = var.odb_network_zero_etl_access
+  aws_odb_network_kms_access             = "DISABLED"
+  aws_odb_network_sts_access             = "DISABLED"
+  aws_odb_network_s3_policy_document     = var.odb_network_s3_policy_document
+  tags                                   = var.tags
   delete_odb_network_associated_resource = var.delete_odb_network_associated_resource
 }
 
 # VPC for ODB Peering Connection (if not using existing VPC)
 module "aws_ia_vpc" {
-  count = var.odb_peering_connection_peer_network_id == null ? 1 : 0
+  count      = var.odb_peering_connection_peer_network_id == null ? 1 : 0
   source     = "aws-ia/vpc/aws"
   version    = "4.5.0"
   tags       = var.tags
@@ -38,8 +40,8 @@ module "aws_ia_vpc" {
 
 # Create ODB Peering Connection
 module "network_peering" {
-  depends_on = [ module.odb_network ]
-  source        = "../../modules/aws-odb-peering"
+  depends_on      = [module.odb_network]
+  source          = "../../modules/aws-odb-peering"
   odb_network_id  = local.odb_network_id
   peer_network_id = local.peer_network_id
   display_name    = var.odb_peering_connection_display_name
@@ -61,7 +63,7 @@ module "exadata_infrastructure" {
 
 # Create autonomous VM cluster in OCI
 module "autonomous_vm_cluster" {
-  depends_on = [ module.odb_network, module.exadata_infrastructure ]
+  depends_on                            = [module.odb_network, module.exadata_infrastructure]
   source                                = "../../modules/aws-odb-avmc"
   autonomous_vm_cluster_display_name    = var.avmc_name
   aws_odb_exa_resource_id               = local.cloud_exadata_infrastructure_id

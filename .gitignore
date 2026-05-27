@@ -1,0 +1,25 @@
+# Terraform transient artefacts
+.terraform/
+.terraform.lock.hcl
+*.tfplan
+tfplan
+tfplan.json
+*.tfstate
+*.tfstate.backup
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Sensitive variable files
+terraform.tfvars
+*.auto.tfvars
+!*.tfvars.template
+!*.auto.tfvars.example
+
+# IDE
+.idea/
+*.iml
+.vscode/
+

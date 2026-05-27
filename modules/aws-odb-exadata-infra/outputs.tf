@@ -8,6 +8,11 @@ output "resource" {
   value       = aws_odb_cloud_exadata_infrastructure.this
 }
 
+output "db_servers" {
+  description = "AWS Data source of Exadata DB Servers"
+  value       = data.aws_odb_db_servers.this
+}
+
 output "oci_url" {
   description = "OCI Console URL of the Exadata Infrastructure"
   value       = aws_odb_cloud_exadata_infrastructure.this.oci_url
@@ -32,3 +37,4 @@ output "oci_resource_ocid" {
   description = "OCID of the Exadata Infrastructure in OCI"
   value       = aws_odb_cloud_exadata_infrastructure.this.ocid
 }
+

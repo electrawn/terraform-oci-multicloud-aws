@@ -16,7 +16,7 @@ output "oci_url" {
 output "oci_tenant" {
   description = "OCI tenant of the Autonomous VM Cluster"
   value       = regex("(?:tenant=)([^?&/]+)", aws_odb_cloud_autonomous_vm_cluster.this.oci_url)[0]
-  
+
 }
 
 output "oci_region" {

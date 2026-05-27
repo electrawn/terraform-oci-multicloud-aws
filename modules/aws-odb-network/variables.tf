@@ -76,7 +76,7 @@ variable "tags" {
 }
 
 variable "delete_odb_network_associated_resource" {
-  description = "The network associated resources id for its deletion"
+  description = "If true, will delete the OCI associated resources when this resources is deleted"
   type        = bool
-  default     = false
+  default     = null
 }

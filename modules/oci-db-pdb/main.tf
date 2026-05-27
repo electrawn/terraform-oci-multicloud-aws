@@ -4,4 +4,8 @@ resource "oci_database_pluggable_database" "this" {
   pdb_name              = var.pdb_name
   pdb_admin_password    = var.pdb_admin_password
   tde_wallet_password   = var.pdb_tde_wallet_password
+  freeform_tags         = var.tags
+  lifecycle {
+    prevent_destroy = true
+  }
 }

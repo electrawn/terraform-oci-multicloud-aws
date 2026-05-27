@@ -8,6 +8,11 @@ output "resource" {
   value       = aws_odb_cloud_vm_cluster.this
 }
 
+output "db_nodes" {
+  description = "AWS Data source of Exadata DB Servers"
+  value       = data.aws_odb_db_nodes.this
+}
+
 output "oci_url" {
   description = "OCI Console URL of the VM Cluster"
   value       = aws_odb_cloud_vm_cluster.this.oci_url

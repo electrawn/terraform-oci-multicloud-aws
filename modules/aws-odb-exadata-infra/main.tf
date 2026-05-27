@@ -7,7 +7,7 @@ resource "aws_odb_cloud_exadata_infrastructure" "this" {
   storage_server_type              = var.exa_infra_shape == "Exadata.X11M" ? "X11M-HC" : null
   compute_count                    = var.compute_count
   storage_count                    = var.storage_count
-  customer_contacts_to_send_to_oci = var.customer_contacts_to_send_to_oci == "" ? null: var.customer_contacts_to_send_to_oci
+  customer_contacts_to_send_to_oci = var.customer_contacts_to_send_to_oci == "" ? null : var.customer_contacts_to_send_to_oci
   tags                             = var.tags
   maintenance_window {
     patching_mode                    = var.maintenance_window.patching_mode
@@ -20,4 +20,9 @@ resource "aws_odb_cloud_exadata_infrastructure" "this" {
     months                           = var.maintenance_window.months
     weeks_of_month                   = var.maintenance_window.weeks_of_month
   }
+}
+
+# Get list of DB Servers of Exadata Infrastructure
+data "aws_odb_db_servers" "this" {
+  cloud_exadata_infrastructure_id = aws_odb_cloud_exadata_infrastructure.this.id
 }
