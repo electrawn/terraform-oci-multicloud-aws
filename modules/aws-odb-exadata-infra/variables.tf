@@ -23,10 +23,10 @@ variable "storage_count" {
 }
 variable "customer_contacts_to_send_to_oci" {
   description = "The email addresses used by Oracle to send notifications regarding the Exadata infrastructure"
-  type        = set(object({
+  type = set(object({
     email = string
   }))
-  default     = null
+  default = null
 }
 variable "tags" {
   description = "Resource tags for the Exadata Infrastructure"

@@ -1,0 +1,6 @@
+# Force .tf and script files to use LF line endings
+*.tf       text eol=lf
+*.sh       text eol=lf
+*.yaml     text eol=lf
+*.tpl      text eol=lf
+*.md       text eol=lf

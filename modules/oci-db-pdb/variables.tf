@@ -16,3 +16,8 @@ variable "pdb_tde_wallet_password" {
   sensitive = true
   default   = "TDE wallet password of the Pluggable Database"
 }
+variable "tags" {
+  type        = map(string)
+  description = "Freeform Tags for DB"
+  default     = {}
+}

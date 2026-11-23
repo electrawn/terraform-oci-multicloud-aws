@@ -8,7 +8,7 @@ terraform {
     }
     # https://registry.terraform.io/providers/oracle/oci/latest/docs
     oci = {
-      source  = "oracle/oci"
+      source = "oracle/oci"
     }
     # https://registry.terraform.io/providers/hashicorp/local/latest/docs
     local = {

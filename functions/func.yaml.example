@@ -1,0 +1,16 @@
+# Example function configuration for OCI Functions.
+# Deploy with: fn deploy --app <application-name>
+schema_version: 20180708
+name: ssh-check
+version: 0.0.1
+runtime: docker
+timeout: 120
+memory: 256
+config:
+  OCI_REGION: us-ashburn-1
+  OCI_COMPARTMENT_ID: ocid1.compartment.oc1..<compartment-with-exadata-vm-clusters>
+  METRIC_COMPARTMENT_ID: ocid1.compartment.oc1..<compartment-for-metrics-and-alarms>
+  SSH_CHECK_TARGET: admin            # admin | primary | vip
+  SSH_CHECK_DOMAIN: admin.example.internal
+  # SSH_CHECK_VM_CLUSTER_NAME: exa1vmc1
+  LOG_LEVEL: INFO

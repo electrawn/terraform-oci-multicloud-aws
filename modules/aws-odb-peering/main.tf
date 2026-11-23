@@ -1,4 +1,4 @@
-locals  {
+locals {
   # Determine if display_name is provided
   is_display_name_provided = var.display_name != null && var.display_name != ""
 }

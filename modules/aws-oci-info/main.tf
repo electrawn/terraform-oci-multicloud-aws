@@ -6,12 +6,12 @@ locals {
     "avmc" = "aevm"
   }
 
-  oci_url = one( concat(
+  oci_url = one(concat(
     data.aws_odb_cloud_exadata_infrastructure.this[*].oci_url,
     data.aws_odb_cloud_vm_cluster.this[*].oci_url,
     data.aws_odb_cloud_autonomous_vm_cluster.this[*].oci_url,
-  ) )
-  
+  ))
+
   oci_region           = regex("(?i:region=)([^?&/]+)", local.oci_url)[0]
   oci_compartment_ocid = regex("(?i:compartmentId=)([^?&/]+)", local.oci_url)[0]
   oci_tenant           = regex("(?i:tenant=)([^?&/]+)", local.oci_url)[0]

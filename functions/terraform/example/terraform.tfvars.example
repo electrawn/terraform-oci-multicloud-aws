@@ -1,0 +1,22 @@
+region              = "us-ashburn-1"
+env                 = "tst"
+tenancy_ocid        = "ocid1.tenancy.oc1..exampleuniqueid"
+compartment_ocid    = "ocid1.compartment.oc1..exampleuniqueidmonitor"
+db_compartment_ocid = "ocid1.compartment.oc1..exampleuniqueiddb"
+subnet_ocids        = ["ocid1.subnet.oc1.iad.exampleuniqueid"]
+function_image      = "iad.ocir.io/exampletenancynamespace/ssh-check:0.0.1"
+
+clusters = {
+  exa1vmc1 = { cluster_name = "exa1vmc1" }
+}
+
+ssh_check_target = "admin"
+ssh_check_domain = "admin.example.internal"
+
+create_iam        = false
+scheduler_enabled = true
+scheduler_minute  = 0
+
+tags = {
+  created_by = "terraform"
+}

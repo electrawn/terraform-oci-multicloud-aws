@@ -1,0 +1,99 @@
+
+# ------------------------
+# ODB Network variables
+# ------------------------
+variable "aws_odb_network_availability_zone_id" {
+  description = "Availability Zone ID of the ODB network"
+  type        = string
+  default     = null
+}
+
+variable "aws_odb_network_display_name" {
+  description = "Name of the ODB network"
+  type        = string
+  default     = null
+}
+
+variable "aws_odb_network_client_subnet_cidr" {
+  description = "Client subnet CIDR range of the ODB network"
+  type        = string
+  default     = null
+}
+
+variable "aws_odb_network_backup_subnet_cidr" {
+  description = "Backup subnet CIDR range of the ODB network"
+  type        = string
+  default     = null
+}
+
+variable "aws_odb_network_custom_domain_name" {
+  description = "AWS ODB network custom domain name. You can provide this value or aws_odb_network_default_dns_prefix value"
+  type        = string
+  default     = null
+}
+
+variable "aws_odb_network_default_dns_prefix" {
+  description = "AWS ODB network default DNS prefix. You can provide this value or aws_odb_network_custom_domain_name value"
+  type        = string
+  default     = "example"
+}
+
+variable "aws_odb_network_s3_access" {
+  description = "The configuration for Amazon S3 access from the ODB network"
+  type        = string
+  default     = "DISABLED"
+}
+
+variable "aws_odb_network_zero_etl_access" {
+  description = "The configuration for Zero-ETL access from the ODB network"
+  type        = string
+  default     = "DISABLED"
+}
+
+variable "aws_odb_network_s3_policy_document" {
+  description = "The s3 policy document for Amazon S3 access from the ODB network"
+  type        = string
+  default     = null
+}
+
+variable "odb_network_tags" {
+  description = "Resource tags for the Exadata Infrastructure"
+  type        = map(string)
+  default     = null
+}
+
+variable "aws_odb_network_kms_access" {
+  description = "The configuration for KMS access from the ODB network"
+  type        = string
+  default     = null
+}
+
+variable "aws_odb_network_kms_document" {
+  description = "Specifies the endpoint policy for KMS access from the ODB network"
+  type        = string
+  default     = null
+}
+
+variable "aws_odb_network_sts_access" {
+  description = "The configuration for STS access from the ODB network"
+  type        = string
+  default     = null
+}
+
+variable "aws_odb_network_sts_document" {
+  description = "Specifies the endpoint policy for STS access from the ODB network"
+  type        = string
+  default     = null
+}
+
+variable "tags" {
+  description = "Resource tags for the Exadata Infrastructure"
+  type        = map(string)
+  default     = null
+}
+
+variable "delete_odb_network_associated_resource" {
+  description = "The network associated resources id for its deletion"
+  type        = bool
+  default     = null
+}

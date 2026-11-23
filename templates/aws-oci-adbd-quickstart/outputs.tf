@@ -1,11 +1,11 @@
 output "aws_odb_exa_resource_id" {
   description = "Exadata Infrastructure ID in AWS"
-  value       = module.exadata_infrastructure.aws_odb_exa_resource_id
+  value       = module.exadata_infrastructure.resource_id
 }
 
 output "exa_resource_ocid" {
   description = "Exadata Infrastructure OCID"
-  value       = module.exadata_infrastructure.exa_resource_ocid
+  value       = module.exadata_infrastructure.oci_resource_ocid
 }
 
 output "aws_odb_network_resource_id" {
@@ -24,21 +24,21 @@ output "odb_peering_connection" {
 }
 
 output "avm_cluster_id" {
-  value       = module.autonomous_vm_cluster.avm_cluster_id
+  value       = module.autonomous_vm_cluster.resource_id
   description = "AVM Cluster ID"
 }
 
 output "avm_cluster_ocid" {
-  value       = module.autonomous_vm_cluster.avm_cluster_ocid
+  value       = module.autonomous_vm_cluster.oci_resource_ocid
   description = "AVM Cluster OCID"
 }
 
 output "acd_id" {
-  value       = module.acd.acd_id
+  value       = module.acd.oci_resource_ocid
   description = "The OCID of the created ACD"
 }
 
 output "db_id" {
-  value = module.adbd.db_id
+  value       = module.adb.oci_resource_ocid
   description = "The OCID of the created ADBD"
 }

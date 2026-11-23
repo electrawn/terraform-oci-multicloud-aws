@@ -26,19 +26,19 @@ variable "aws_odb_network_resource_arn" {
 variable "autonomous_data_storage_size_in_tbs" {
   type        = number
   description = "Number of autonomous data storage size in tbs for the Autonomous VM cluster"
-  default = 5
+  default     = 5
 }
 
 variable "memory_per_oracle_compute_unit_in_gbs" {
   type        = number
   description = "Number of gbs memory per oracle compute unit for the Autonomous VM cluster"
-  default = 2
+  default     = 2
 }
 
 variable "total_container_databases" {
   type        = number
   description = "total number of container databases for the Autonomous VM cluster"
-  default = 1
+  default     = 1
 }
 
 variable "cpu_core_count_per_node" {
@@ -86,13 +86,13 @@ variable "is_mtls_enabled_vm_cluster" {
 variable "scan_listener_port_non_tls" {
   type        = number
   description = "The SCAN listener port for non-TLS (TCP) protocol"
-  default = 1521
+  default     = 1521
 }
 
 variable "scan_listener_port_tls" {
   type        = number
   description = "The SCAN listener port for TLS (TCP) protocol"
-  default = 2484
+  default     = 2484
 }
 
 # variable "maintenance_window_days_of_week" {
@@ -136,7 +136,7 @@ variable "scan_listener_port_tls" {
 variable "maintenance_window" {
   description = "Maintenance window configuration for the Autonomous VM cluster"
   type = object({
-    preference                       = string
+    preference = string
     days_of_week = optional(set(object(
       { name = string }
     )))
@@ -148,6 +148,6 @@ variable "maintenance_window" {
     weeks_of_month = optional(set(number))
   })
   default = {
-    preference                       = "NO_PREFERENCE"
+    preference = "NO_PREFERENCE"
   }
 }
